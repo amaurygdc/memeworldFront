@@ -32,8 +32,10 @@ export class RestService {
   }
 
   getWorld(): Promise<World> {
+    
+    let headers = this.setHeaders(this.getUser())
     return this.http.get(this.server + "adventureisis/generic/getworld", {
-      headers: this.setHeaders(this.user)
+      headers: headers
     })
       .toPromise().then(response => response)
       .catch(this.handleError);
@@ -41,12 +43,12 @@ export class RestService {
 
   private setHeaders(user: string): HttpHeaders {
     var headers = new HttpHeaders();
-    headers.append("X-User", user);
+    headers = headers.append("X-User", user);
     return headers;
   };
 
   putManager(manager: Pallier): Promise<Response> {
-    return this.http.put(this.server + "generic/manager", manager, {
+    return this.http.put(this.server + "adventureisis/generic/manager", manager, {
       headers: this.setHeaders(this.user)
     })
       .toPromise().then(response => response)
@@ -54,23 +56,25 @@ export class RestService {
   };
 
   putProduit(product: Product): Promise<Response> {
-    return this.http.put(this.server + "generic/product", product, {
+    return this.http.put(this.server + "adventureisis/generic/product", product, {
       headers: this.setHeaders(this.user)
     })
       .toPromise().then(response => response).catch(this.handleError);
   };
 
   public saveWorld(world: World): Promise<Response> {
-    
+    console.log(this.getUser());
     return this.http
-      .put(this.server + "adventureisis/generic/getworld", world, {
+      .put(this.server + "adventureisis/generic/world", world, {
         headers: { "X-user": this.getUser() }
       })
       .toPromise().then(response => response).catch(this.handleError);
-  }
+      
+  };
 
   public deleteWorld(): Promise<Response> {
-    return this.http.delete(this.server + "adventureisis/generic/getworld", {
+    
+    return this.http.delete(this.server + "adventureisis/generic/world", {
         headers: this.setHeaders(this.getUser())
       })
       .toPromise().then(response => response)
