@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img id="productlogo" [attr.src]="server+product.logo" class="card-img rounded-circle" (click)="production()">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-text" [innerHTML]="product.revenu*product.quantite | bigvalue"></h5>
+                <p class="card-text"><button type="button" class="btn btn-light" (click)="achatProduct()">
+                        Acheter: <span id="productcout" class="badge badge-secondary" [innerHTML]="product.cout | bigvalue"></span>
+                        <span class="badge badge-secondary">x{{_qtmulti}}</span>
+                    </button>
+                </p>
+                <div class="card-text progress" class="txt progress" #bar>{{product.timeleft}}</div>
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card-body">
+                <h5 class="card-title" ><small class="badge badge-dark" id="productquantite">{{product.quantite}}</small></h5>
+            </div>
+        </div>
+    </div>
+</div>

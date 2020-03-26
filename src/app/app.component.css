@@ -1,0 +1,18 @@
+#world{
+    max-width: 50%;
+}
+#worldname{
+    font-size: x-large;
+}
+#unlock,#cash,#angel,#manager,#investor{
+    margin-bottom: 40px;
+    margin-left: 20px;
+    font-size: large;
+}
+#corps{
+    margin-left: 10px;
+}
+
+#logo{
+    max-width: 70%;
+}

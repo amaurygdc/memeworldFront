@@ -1,0 +1,27 @@
+#productlogo{
+    width: 100px;
+    height: 100px;
+    border-radius:50% #CCCCCC;
+    
+}
+.lesdeux{
+    position: relative;
+}
+
+.lesecond{
+    position: absolute;
+    bottom: -10px;
+}
+#productquantite {
+    text-align-last: center;
+    color: aliceblue;
+    background-color:rgb(44, 45, 48);
+    border-radius:50% #CCCCCC;
+    padding:0.5em;
+    }
+#productcout{
+    width: 30px;
+}
+#productquantite{
+    width: 100px; 
+}
